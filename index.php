@@ -15,7 +15,11 @@
 <body>
     <div class="page-header ">
  		 <h1>Game Shop<small>  Tienda de prueba creada para la UNIR</small></h1>
-     <a href="views\chart.php"  class="btn btn-primary" role="button">Carrito <span class="glyphicon glyphicon-shopping-cart"></span></a>
+     <?php
+        if(array_key_exists('id', $_GET)){ 
+          echo '<a href="views\chart.php" class="btn btn-primary" role="button">Carrito <span class="glyphicon glyphicon-shopping-cart"></span></a>' ;
+        }
+      ?>  
      <?php  ?>
 	  </div>
     <div class="row" id="Elementos">      
@@ -27,8 +31,12 @@
 
     <?php 
     	if($_GET){
-    		$_SESSION['cesta']->addElemento($arrayName = array('id' => $_GET['id'], 'name'=> $_GET['name'], 'price' => $_GET['price']));
-    	}    	
+    		if(array_key_exists('id', $_GET))	
+	    		$_SESSION['cesta']->addElemento($arrayName = array('id' => $_GET['id'], 'name'=> $_GET['name'], 'price' => $_GET['price']));
+
+	    	if(array_key_exists('reinicio', $_GET))	
+	    		session_destroy();
+    	}
     ?>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
