@@ -1,5 +1,5 @@
 <?php 
-	require "..\static\sql\config.php";
+	require "../static/sql/config.php";
 	$sql = "SELECT * FROM `Elementos`";
 	$result = mysql_query($sql);
 	$html = "";

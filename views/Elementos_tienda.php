@@ -1,5 +1,5 @@
 <?php 
-	require $_SERVER["DOCUMENT_ROOT"].'/UNIR/Pasarela_Pagos/static/sql/config.php';
+	require $_SERVER["DOCUMENT_ROOT"].'/static/sql/config.php';
 	$sql = 'SELECT * FROM elementos';
 	$result = mysql_query($sql);
 
